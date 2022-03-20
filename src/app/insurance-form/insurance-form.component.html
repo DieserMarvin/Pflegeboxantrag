@@ -1,0 +1,57 @@
+
+<div class="custom-control custom-radio">
+    <input 
+    id="gesetzlich" 
+    type="radio" 
+    class="custom-control-input" 
+    value="gesetzlich" name="gesetzlich" 
+    [value]="1" 
+    [checked]="isSelected" 
+    [(ngModel)]="isVisible" 
+    required>
+    <label class="custom-control-label" for="gesetzlich">&nbsp;gesetzlich</label>
+</div>
+
+<div *ngIf="isVisible == 1" class="mt-1">
+    <div class="form-group">
+        <label for="inID">Versichertennummer</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="inID" 
+        [(ngModel)]="insuranceNumber" 
+        name="inID" 
+        required
+        #inID="ngModel" 
+        pattern="^[a-zA-Z]{1}\d{9}$">
+        <div [hidden]="inID.valid || inID.pristine" class="alert alert-danger">
+            korrekte Versichtertennummer wird benötigt
+        </div>
+
+        <label for="name">Krankenkasse</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="inComp" 
+        [(ngModel)]="insuranceCompany" 
+        name="inComp" 
+        required
+        #inComp="ngModel">
+        <div [hidden]="inComp.valid || inComp.pristine" class="alert alert-danger">
+            Name der Krankenkasse wird benötigt
+        </div>
+    </div>
+</div>
+
+<div class="custom-control custom-radio">
+    <input 
+    id="privat" 
+    type="radio" 
+    class="custom-control-input" 
+    value="privat" name="privat" 
+    [value]="0" 
+    [checked]="!isSelected" 
+    [(ngModel)]="isVisible" 
+    required>
+    <label class="custom-control-label" for="female">&nbsp;privat</label>
+</div>

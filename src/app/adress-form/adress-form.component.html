@@ -1,0 +1,52 @@
+<div class="form-group">
+    <label for="name">Name</label>
+    <input 
+    type="text" 
+    class="form-control" 
+    id="name" 
+    [(ngModel)]="customer.name" 
+    name="name" 
+    required 
+    #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        Name wird benötigt
+    </div>
+
+    <div class="form-group">
+        <label for="name">Adresse</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="adress" 
+        [(ngModel)]="customer.address" 
+        name="adress" 
+        required
+            #adress="ngModel">
+        <div [hidden]="adress.valid || adress.pristine" class="alert alert-danger">
+            Adresse wird benötigt
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Adresszusatz</label>
+        <input type="text" class="form-control" id="adressinfo" [(ngModel)]="customer.addressinfo" name="adressinfo"
+            #adressinfo="ngModel">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Postleitzahl</label>
+        <input type="text" class="form-control" id="zipcode" [(ngModel)]="customer.zipcode" name="zipcode"
+            #zipcode="ngModel" required>
+        <div [hidden]="zipcode.valid || zipcode.pristine" class="alert alert-danger">
+            Postleitzahl wird benötigt
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Ort</label>
+        <input type="text" class="form-control" id="city" [(ngModel)]="customer.city" name="city" #city="ngModel" required>
+        <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+            Ort wird benötigt
+        </div>
+    </div>
+</div>

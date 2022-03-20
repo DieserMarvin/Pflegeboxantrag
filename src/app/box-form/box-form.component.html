@@ -1,0 +1,48 @@
+<div class="container mt-1">
+    <form class="form-control" ngModel #boxForm="ngForm">
+        <div class="card">
+
+            <div class="card-header">
+                <div>
+                    <h1>Antrag einer Pflegebox</h1>
+                </div>
+            </div>
+
+            <div class="card-body">
+
+                <h4 class="mt-2">Empfängeradresse:</h4>
+                <app-adress-form required #adress></app-adress-form>
+                <hr>
+
+                <div class="form-check ml-5">
+                    <input class="form-check-input" 
+                    type="checkbox" 
+                    name="isDifferent" 
+                    id="isDifferent"
+                    [(ngModel)]="isDifferent" />
+                    <label class="form-check-label" for="isDifferent">Lieferadresse weicht
+                        ab</label>
+                </div>
+
+                <h4 [hidden]="!isDifferent" class="mt-2">Lieferadresse:</h4>
+                <app-adress-form [hidden]="!isDifferent"></app-adress-form>
+                <hr>
+
+                <h4>Versicherungsart:</h4>
+                <app-insurance-form required #insurance></app-insurance-form>
+                <hr>
+
+                <h4>Boxart:</h4>
+                <app-box-selection required #box></app-box-selection>
+                <hr>
+
+                <div class="text-center">
+                    
+                    <re-captcha (resolved)="resolved($event)" siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU" ></re-captcha>
+                    <input type="submit" class="btn btn-primary mt-3 mb-2" [disabled]="!boxForm.valid"> 
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,5 @@
+<div class="form-group">
+    <select class="form-control" id="boxart" required name="boxart" [(ngModel)]="box" #boxart="ngModel">
+        <option *ngFor="let box of boxes" [ngValue]="box">{{box}}</option>
+    </select>
+</div>
